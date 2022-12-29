@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Prep.Day-5</title>
+</head>
+<style>
+    body{
+        background-color: lightcoral;
+    }
+    h1{
+        background-color: black;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+        border-radius: 10px;
+    }
+    h3{
+        font-weight: bold;
+    }
+    .ques{
+        background-color: lightgreen;
+        border-radius: 5px;
+        border: 3px dotted blue;
+        font-size: 15px;
+        padding-left: 22px;
+    }
+    pre{
+        color: brown;
+        font-weight: bold;
+    }
+    p{
+        font-size: 18px;
+    }
+</style>
+<body>
+    <h1>Interview Preparation (Day-5)</h1>
+    <div class="container">
+        <div class="ques">
+            <h3>1.What is hoisting?</h3>
+            <p>Hoisting is a mechanism where variables and functions are moved to the top of their scope before code of execution.The main thing in hoisting is javascript only hoists declartions not intialization.In varible hoisting if var variable acccessed before declaration gives undefined and if let and const are acccesssed before declaration gives reference error.</p>
+            <pre>
+                console.log(msg)
+                var msg = "a variable is hoisted"
+
+                var message="A variable is hoisted"
+                console.log(message);
+
+                console.log(greet);
+                let greet="Good Morning"
+            </pre>
+        </div><br>
+        <div class="ques">
+            <h3>2.What is a Temporal Dead Zone?</h3>
+            <p>Temporal dead zone is a behaviour in javascript that occurs when variables are declared with let and const keywords.When we access let and const variables before declaration then it causes reference error.The time span when that happens between creation of a variable's binding and its declaration it is called as temporal dead zone. </p>
+            <pre>
+                function tDZ(){
+                    console.log(a);
+                    console.log(b);
+                    console.log(c);
+                    let a=1;
+                    const b=2;
+                    var c=10;
+                }
+                tDZ();
+            </pre>
+        </div><br>
+        <div class="ques">
+            <h3>3.what is Symbol?</h3>
+            <p>Symbol is a built-in object whose constructor returns a symbol primitive also called a Symbol value or just a Symbol that's guaranteed to be unique. Symbols are often used to add unique property keys to an object that won't collide with keys any other code might add to the object, and which are hidden from any mechanisms other code will typically use to access the object. </p>
+            <pre>
+                const sym1 = Symbol();
+                const sym2 = Symbol("first");
+                const sym3 = Symbol("second");
+                Symbol("fist") === Symbol("second");
+            </pre>
+        </div><br>
+        <div class="ques">
+            <h3>4.Write code to explain map and filter in arrays</h3>
+            <pre>
+                const numbers=[1,2,3,4,5,6,7,8,9]
+                const multiply=numbers.map(item=>{item * 5})
+                console.log(multiply);
+
+                const ages=[10,22,30,12,25,19,28,40,50]
+                const ageToVote=ages.filter(item=>{item >= 18})
+                console.log(ageToVote);
+                 
+                const sum=numbers.reduce((a,b)=>{a+b},0)
+                consle.log(sum)
+            </pre>
+        </div><br>
+        <div class="ques">
+            <h3>5.Explain passed by value and passed by reference</h3>
+            <p>Pass By Value: In pass by value,function is called by directly passing the value of the variable as an argument.so any changes made inside the function does not effect the original value.In pass by value,parameters are passed as an arguments creates its own copy and changes made inside the function is made to copied value not to original value.<br><br>
+            Pass By Reference:In Pass By reference function is called by directly passing the reference/address of the variable as an argument.so if any changes made inside the function also changes the original value.In JS,array and object follows pass by reference property.In,passby reference,parameters passed as an arguments does not create its own copy it refers to the original values so changes made inside function also affect original value.
+            </p>
+            <pre>
+                function PassbyValue(num1,num2){
+                    let a;
+                    a = num2;
+                    num2 
+                }
+            </pre>
+        </div><br>
+        <div class="ques">
+            <h3>6.What is the DOM?</h3>
+            <p>DOM represents Document Object Model. DOM is the data representation of the objects that comprise the structure and content of a document on web.DOM is a programming interface for web documents.It represents the page so that programs can change the document structure ,style,content.The DOM representsthe document as nodes and objects: the way programming languages can interact with the page. </p>
+        </div><br>
+        <div class="ques">
+            <h3>7.What is the purpose of async/await keywords?</h3>
+            <p> async and await are reserved keywords. Async function is a function declared with async keyword and await keyword is permitted within it.Async and await keywords are used to provide clean code to avoid the need of promise chains.
+            </p>
+            <pre>
+                let promise = new Promise(function(resolve,reject){
+                    setTimeout(()=>{
+                        resolve("Promise resolved")
+                    },3000)
+                })
+
+                async function myFunction(){
+                    let result=await promise;
+                    console.log(result);
+                }
+                myFunction();
+            </pre>
+        </div><br>
+        <div class="ques">
+            <h3>8.Give an example of async/await</h3>
+            <pre>
+                function resolveafter2seconds(){
+                    return new Promise(resolve =>{
+                        setTimeout(()=>{
+                            console.log("Problem resolved")
+                        },2000)
+                    })
+                }
+                 async function asynccall(){
+                    console.log("function calling")
+                    const result = awaitresolveafter2seconds();
+                    console.log(result)
+                 }
+            </pre>
+        </div>
+    </div><br>
+    <script src="./main.js"></script>
+</body>
+</html>
